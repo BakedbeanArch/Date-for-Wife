@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>An Invitation for Wife</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Caveat:wght@500;600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #fdf2f4 0%, #fbe8ec 50%, #f7d6de 100%);
+      color: #4a3b40;
+      overflow-x: hidden;
+    }
+
+    .font-serif-romantic {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .font-handwriting {
+      font-family: 'Caveat', cursive;
+    }
+
+    /* Ambient Floating Particles */
+    .particle {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.35;
+      animation: floatUp 12s infinite linear;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(105vh) scale(0.8) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.4;
+      }
+      80% {
+        opacity: 0.4;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Smooth Fade In Entrance */
+    .fade-in-up {
+      animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Card Soft Shadows & Glassmorphism */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 20px 50px rgba(186, 117, 137, 0.12);
+    }
+
+    /* Pulse Glow effect */
+    .glow-hover {
+      transition: all 0.4s ease;
+    }
+    .glow-hover:hover {
+      box-shadow: 0 10px 25px rgba(225, 122, 149, 0.3);
+      transform: translateY(-2deg);
+    }
+
+    /* SVG Annotation Pulse Animations */
+    .doodle-draw {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: drawLines 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes drawLines {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 relative">
+
+  <div id="particle-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+  <main class="w-full max-w-xl mx-auto z-10 fade-in-up">
+    <div class="glass-card rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden">
+      
+      <!-- Subtle Decorative Header Ribbon -->
+      <div class="inline-block px-4 py-1.5 rounded-full bg-rose-100/80 border border-rose-200/60 text-rose-700 text-xs tracking-widest uppercase mb-6 font-medium">
+        A Quiet Gesture
+      </div>
+
+      <!-- Main Heading -->
+      <h1 class="font-serif-romantic text-3xl sm:text-4xl md:text-5xl font-semibold text-rose-950 mb-2">
+        To My Wife, Serenity
+      </h1>
+      <p class="font-serif-romantic italic text-lg sm:text-xl text-rose-700/80 mb-8">
+        An invitation planned with intention, whenever you're ready.
+      </p>
+
+      <div class="my-6 bg-rose-50/60 border border-rose-100 rounded-2xl p-4 sm:p-6 relative group">
+        <div class="text-xs uppercase tracking-wider text-rose-400 font-semibold mb-3">Visualizing Our Evening</div>
+        
+        <!-- SVG Interactive Book Graphic -->
+        <svg viewBox="0 0 400 220" class="w-full h-auto max-w-xs sm:max-w-sm mx-auto drop-shadow-md">
+          <!-- Book Base & Cover -->
+          <path d="M 20 180 Q 200 200 380 180 L 380 50 Q 200 70 20 50 Z" fill="#e8b4bc" opacity="0.6"/>
+          
+          <!-- Book Pages -->
+          <path d="M 30 175 Q 200 192 370 175 L 370 45 Q 200 62 30 45 Z" fill="#fffdfa"/>
+          
+          <!-- Center Spine Crease -->
+          <path d="M 200 60 L 200 190" stroke="#dab0b7" stroke-width="2" stroke-dasharray="3 3"/>
+          
+          <!-- Left Page Text Block Lines -->
+          <line x1="50" y1="75" x2="170" y2="75" stroke="#4a3b40" stroke-width="1.5" stroke-opacity="0.3" stroke-linecap="round"/>
+          <line x1="50" y1="90" x2="165" y2="90" stroke="#4a3b40" stroke-width="1.5" stroke-opacity="0.3" stroke-linecap="round"/>
+          <line x1="50" y1="105" x2="155" y2="105" stroke="#4a3b40" stroke-width="1.5" stroke-opacity="0.3" stroke-linecap="round"/>
+          
+          <!-- Highlighted Verse (Yellow/Peach Soft Overlay) -->
+          <rect x="48" y="118" width="120" height="12" rx="3" fill="#fde68a" opacity="0.75"/>
+          <line x1="50" y1="124" x2="168" y2="124" stroke="#854d0e" stroke-width="1.8" stroke-linecap="round"/>
+
+          <line x1="50" y1="140" x2="160" y2="140" stroke="#4a3b40" stroke-width="1.5" stroke-opacity="0.3" stroke-linecap="round"/>
+          
+          <!-- Right Page Text Block Lines -->
+          <line x1="230" y1="75" x2="350" y2="75" stroke="#4a3b40" stroke-width="1.5" stroke-opacity="0.3" stroke-linecap="round"/>
+          <line x1="230" y1="90" x2="340" y2="90" stroke="#4a3b40" stroke-width="1.5" stroke-opacity="0.3" stroke-linecap="round"/>
+          
+          <!-- Pink Highlighted Line -->
+          <rect x="228" y="103" width="110" height="12" rx="3" fill="#f43f5e" opacity="0.25"/>
+          <line x1="230" y1="109" x2="335" y2="109" stroke="#9f1239" stroke-width="1.8" stroke-linecap="round"/>
+
+          <line x1="230" y1="125" x2="345" y2="125" stroke="#4a3b40" stroke-width="1.5" stroke-opacity="0.3" stroke-linecap="round"/>
+          <line x1="230" y1="140" x2="320" y2="140" stroke="#4a3b40" stroke-width="1.5" stroke-opacity="0.3" stroke-linecap="round"/>
+
+          <!-- Margin Handwritten Doodles & Notes -->
+          <!-- Heart doodle -->
+          <path d="M 160 148 C 160 144, 154 140, 150 145 C 146 140, 140 144, 140 148 C 140 156, 150 162, 150 162 C 150 162, 160 156, 160 148 Z" fill="#f43f5e" opacity="0.8" />
+          
+          <!-- Handwritten text annotation style -->
+          <text x="240" y="165" font-family="'Caveat', cursive" font-size="16" fill="#be123c">
+            "reminds me of you..."
+          </text>
+
+          <!-- Little Star/Sparkle Doodles -->
+          <path d="M 330 65 L 333 72 L 340 75 L 333 78 L 330 85 L 327 78 L 320 75 L 327 72 Z" fill="#fbbf24" opacity="0.8" />
+        </svg>
+
+        <p class="font-handwriting text-xl text-rose-800 mt-2">
+          Two books • Underlined thoughts • Shared moments
+        </p>
+      </div>
+
+      <div class="text-left space-y-4 my-8 px-2 sm:px-4">
+        <h2 class="font-serif-romantic text-2xl font-semibold text-rose-900 border-b border-rose-200/60 pb-2">
+          The Idea
+        </h2>
+
+        <!-- Step 1 -->
+        <div class="flex items-start space-x-3">
+          <div class="flex-shrink-0 w-7 h-7 rounded-full bg-rose-200/60 text-rose-800 flex items-center justify-center font-semibold text-sm mt-0.5">
+            1
+          </div>
+          <div>
+            <h3 class="font-medium text-rose-900 text-sm sm:text-base">Find Our Books</h3>
+            <p class="text-xs sm:text-sm text-rose-700/80 leading-relaxed">
+              We each pick out a random or intriguing poetry book in our own time.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex items-start space-x-3">
+          <div class="flex-shrink-0 w-7 h-7 rounded-full bg-rose-200/60 text-rose-800 flex items-center justify-center font-semibold text-sm mt-0.5">
+            2
+          </div>
+          <div>
+            <h3 class="font-medium text-rose-900 text-sm sm:text-base">Leave Our Mark</h3>
+            <p class="text-xs sm:text-sm text-rose-700/80 leading-relaxed">
+              Read through it independently—underline your favorite lines, highlight phrases, write small thoughts in the margins, or doodle on the pages.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex items-start space-x-3">
+          <div class="flex-shrink-0 w-7 h-7 rounded-full bg-rose-200/60 text-rose-800 flex items-center justify-center font-semibold text-sm mt-0.5">
+            3
+          </div>
+          <div>
+            <h3 class="font-medium text-rose-900 text-sm sm:text-base">The Date</h3>
+            <p class="text-xs sm:text-sm text-rose-700/80 leading-relaxed">
+              Whenever we are both ready, we sit down together over coffee or wine, swap our books, and read what the other created.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-2">
+        <button id="acceptBtn" onclick="acceptInvitation()" class="glow-hover w-full sm:w-auto bg-gradient-to-r from-rose-500 to-rose-400 hover:from-rose-600 hover:to-rose-500 text-white font-medium px-8 py-3.5 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 mx-auto">
+          <span>Accept Invitation</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Response / Reveal Area -->
+      <div id="acceptedMessage" class="hidden mt-6 p-5 bg-rose-100/70 border border-rose-200 rounded-2xl fade-in-up">
+        <p class="font-serif-romantic text-xl text-rose-950 font-semibold mb-1">
+          It's a Date. ❤️
+        </p>
+        <p class="text-xs sm:text-sm text-rose-800/90 leading-relaxed">
+          No rush at all. Whenever you're ready, let me know. All logistics and details on my end are ready for us.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Soft Footer Signature -->
+    <p class="text-center text-xs text-rose-500/70 mt-6 tracking-wide">
+      Made specifically for you • Open anytime
+    </p>
+  </main>
+
+  <script>
+    // Floating Heart / Particle Generator
+    function createParticles() {
+      const container = document.getElementById('particle-container');
+      const particleCount = 18;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Randomize sizing and position
+        const size = Math.random() * 16 + 10;
+        const left = Math.random() * 100;
+        const delay = Math.random() * 10;
+        const duration = Math.random() * 8 + 8;
+
+        particle.style.left = `${left}%`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
+
+        // Floating SVG Heart shape
+        particle.innerHTML = `
+          <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="#e17a95" opacity="0.6">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        `;
+
+        container.appendChild(particle);
+      }
+    }
+
+    // Interactive Acceptance Action
+    function acceptInvitation() {
+      const btn = document.getElementById('acceptBtn');
+      const msg = document.getElementById('acceptedMessage');
+
+      // Hide button and show sweet confirmation message
+      btn.style.display = 'none';
+      msg.classList.remove('hidden');
+
+      // Trigger soft romantic heart confetti explosion
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 50,
+          spread: 60,
+          origin: { y: 0.7 },
+          colors: ['#f43f5e', '#fda4af', '#fecdd3', '#e17a95']
+        });
+      }
+    }
+
+    // Initialize on load
+    window.onload = function() {
+      createParticles();
+    };
+  </script>
+</body>
+</html>
